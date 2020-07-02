@@ -1,0 +1,1096 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"azurerm_lb": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"frontend_ip_configuration": [
+								{
+									"name":  "LoadBalancerFrontEnd",
+									"zones": null,
+								},
+							],
+							"location":            "westus2",
+							"name":                "two-tier-tfc-demo-app-lb",
+							"resource_group_name": "two-tier-tfc-demo-app",
+							"sku": "Basic",
+						},
+						"destroy": false,
+						"diff": {
+							"frontend_ip_configuration.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"frontend_ip_configuration.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-lb",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"sku": {
+								"computed": false,
+								"new":      "Basic",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_lb_backend_address_pool": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"location":            null,
+							"name":                "BackendPool1",
+							"resource_group_name": "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"backend_ip_configurations.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"load_balancing_rules.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"loadbalancer_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "BackendPool1",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_lb_probe": {
+				"lb_probe": {
+					0: {
+						"applied": {
+							"interval_in_seconds": 5,
+							"location":            null,
+							"name":                "tcpProbe",
+							"number_of_probes":    2,
+							"port":                80,
+							"protocol":            "tcp",
+							"request_path":        null,
+							"resource_group_name": "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"interval_in_seconds": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"load_balancer_rules.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"loadbalancer_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "tcpProbe",
+								"old":      "",
+							},
+							"number_of_probes": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"request_path": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_lb_rule": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"backend_port":                   80,
+							"disable_outbound_snat":          false,
+							"enable_floating_ip":             false,
+							"frontend_ip_configuration_name": "LoadBalancerFrontEnd",
+							"frontend_port":                  80,
+							"idle_timeout_in_minutes":        5,
+							"location":                       null,
+							"name":                           "LBRule",
+							"protocol":                       "tcp",
+							"resource_group_name":            "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"backend_address_pool_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"backend_port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"disable_outbound_snat": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_floating_ip": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"frontend_ip_configuration_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"frontend_ip_configuration_name": {
+								"computed": false,
+								"new":      "LoadBalancerFrontEnd",
+								"old":      "",
+							},
+							"frontend_port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"idle_timeout_in_minutes": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"load_distribution": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"loadbalancer_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "LBRule",
+								"old":      "",
+							},
+							"probe_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_network_interface": {
+				"nic": {
+					0: {
+						"applied": {
+							"enable_accelerated_networking": false,
+							"enable_ip_forwarding":          false,
+							"ip_configuration": [
+								{
+									"name":                          "ipconfig0",
+									"private_ip_address":            null,
+									"private_ip_address_allocation": "dynamic",
+									"private_ip_address_version":    "IPv4",
+									"public_ip_address_id":          null,
+								},
+							],
+							"location": "westus2",
+							"name":     "two-tier-tfc-demo-app-nic-0",
+							"network_security_group_id": null,
+							"resource_group_name":       "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"applied_dns_servers.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"dns_servers.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_accelerated_networking": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_ip_forwarding": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"internal_dns_name_label": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"internal_fqdn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_configuration.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ip_configuration.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"mac_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-nic-0",
+								"old":      "",
+							},
+							"network_security_group_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"virtual_machine_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+					1: {
+						"applied": {
+							"enable_accelerated_networking": false,
+							"enable_ip_forwarding":          false,
+							"ip_configuration": [
+								{
+									"name":                          "ipconfig1",
+									"private_ip_address":            null,
+									"private_ip_address_allocation": "dynamic",
+									"private_ip_address_version":    "IPv4",
+									"public_ip_address_id":          null,
+								},
+							],
+							"location": "westus2",
+							"name":     "two-tier-tfc-demo-app-nic-1",
+							"network_security_group_id": null,
+							"resource_group_name":       "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"applied_dns_servers.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"dns_servers.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_accelerated_networking": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_ip_forwarding": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"internal_dns_name_label": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"internal_fqdn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_configuration.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ip_configuration.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"mac_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-nic-1",
+								"old":      "",
+							},
+							"network_security_group_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"virtual_machine_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_public_ip": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"allocation_method":       "Dynamic",
+							"domain_name_label":       "two-tier-tfc-demo-app",
+							"idle_timeout_in_minutes": 4,
+							"ip_version":              "IPv4",
+							"location":                "westus2",
+							"name":                    "two-tier-tfc-demo-app-ip",
+							"public_ip_prefix_id":     null,
+							"resource_group_name":     "two-tier-tfc-demo-app",
+							"reverse_fqdn":            null,
+							"sku":                     "Basic",
+							"zones":                   null,
+						},
+						"destroy": false,
+						"diff": {
+							"allocation_method": {
+								"computed": false,
+								"new":      "Dynamic",
+								"old":      "",
+							},
+							"domain_name_label": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"fqdn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"idle_timeout_in_minutes": {
+								"computed": false,
+								"new":      "4",
+								"old":      "",
+							},
+							"ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_version": {
+								"computed": false,
+								"new":      "IPv4",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-ip",
+								"old":      "",
+							},
+							"public_ip_address_allocation": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip_prefix_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"reverse_fqdn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"sku": {
+								"computed": false,
+								"new":      "Basic",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zones": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_resource_group": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"location": "westus2",
+							"name":     "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_subnet": {
+				"subnet": {
+					0: {
+						"applied": {
+							"address_prefix": "10.0.10.0/24",
+							"delegation":     [],
+							"name":           "two-tier-tfc-demo-app-subnet",
+							"network_security_group_id": null,
+							"resource_group_name":       "two-tier-tfc-demo-app",
+							"route_table_id":            null,
+							"service_endpoints":         null,
+							"virtual_network_name":      "two-tier-tfc-demo-app-vnet",
+						},
+						"destroy": false,
+						"diff": {
+							"address_prefix": {
+								"computed": false,
+								"new":      "10.0.10.0/24",
+								"old":      "",
+							},
+							"delegation.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_configurations.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-subnet",
+								"old":      "",
+							},
+							"network_security_group_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"route_table_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"service_endpoints": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"virtual_network_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-vnet",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_virtual_machine": {
+				"vm": {
+					0: {
+						"applied": {
+							"additional_capabilities":          [],
+							"boot_diagnostics":                 [],
+							"delete_data_disks_on_termination": false,
+							"delete_os_disk_on_termination":    false,
+							"location":                         "westus2",
+							"name":                             "two-tier-tfc-demo-app-vm-0",
+							"os_profile": [
+								{
+									"admin_password": "password-two-tier!",
+									"admin_username": "admin",
+									"computer_name":  "two-tier-tfc-demo-app",
+								},
+							],
+							"os_profile_linux_config":   [],
+							"os_profile_secrets":        [],
+							"os_profile_windows_config": [],
+							"plan": [],
+							"primary_network_interface_id": null,
+							"proximity_placement_group_id": null,
+							"resource_group_name":          "two-tier-tfc-demo-app",
+							"storage_image_reference": [
+								{
+									"id":        "",
+									"offer":     "UbuntuServer",
+									"publisher": "Canonical",
+									"sku":       "18.04-LTS",
+									"version":   "latest",
+								},
+							],
+							"storage_os_disk": [
+								{
+									"create_option":             "FromImage",
+									"image_uri":                 null,
+									"name":                      "osdisk0",
+									"vhd_uri":                   null,
+									"write_accelerator_enabled": false,
+								},
+							],
+							"tags": {
+								"environment": "dev",
+								"name":        "fail-test",
+								"owner":       "neil-dahlke",
+							},
+							"vm_size": "Standard_B1s",
+							"zones":   null,
+						},
+						"destroy": false,
+						"diff": {
+							"additional_capabilities.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"availability_set_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_diagnostics.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"delete_data_disks_on_termination": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"delete_os_disk_on_termination": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"identity.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"license_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-vm-0",
+								"old":      "",
+							},
+							"network_interface_ids.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"os_profile.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"os_profile.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"os_profile_linux_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"os_profile_secrets.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"os_profile_windows_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"plan.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"primary_network_interface_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"proximity_placement_group_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"storage_data_disk.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_image_reference.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"storage_image_reference.0.%": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"storage_image_reference.0.id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_image_reference.0.offer": {
+								"computed": false,
+								"new":      "UbuntuServer",
+								"old":      "",
+							},
+							"storage_image_reference.0.publisher": {
+								"computed": false,
+								"new":      "Canonical",
+								"old":      "",
+							},
+							"storage_image_reference.0.sku": {
+								"computed": false,
+								"new":      "18.04-LTS",
+								"old":      "",
+							},
+							"storage_image_reference.0.version": {
+								"computed": false,
+								"new":      "latest",
+								"old":      "",
+							},
+							"storage_os_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"storage_os_disk.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"tags.environment": {
+								"computed": false,
+								"new":      "dev",
+								"old":      "",
+							},
+							"tags.name": {
+								"computed": false,
+								"new":      "fail-test",
+								"old":      "",
+							},
+							"tags.owner": {
+								"computed": false,
+								"new":      "neil-dahlke",
+								"old":      "",
+							},
+							"vm_size": {
+								"computed": false,
+								"new":      "Standard_B1s",
+								"old":      "",
+							},
+							"zones": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"azurerm_virtual_network": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"address_space": [
+								"10.0.0.0/16",
+							],
+							"ddos_protection_plan": [],
+							"dns_servers":          null,
+							"location":             "westus2",
+							"name":                 "two-tier-tfc-demo-app-vnet",
+							"resource_group_name":  "two-tier-tfc-demo-app",
+						},
+						"destroy": false,
+						"diff": {
+							"address_space.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"address_space.0": {
+								"computed": false,
+								"new":      "10.0.0.0/16",
+								"old":      "",
+							},
+							"ddos_protection_plan.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"dns_servers": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-vnet",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"subnet.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.12.9"
+
+variables = {
+	"azure_location":            "West US 2",
+	"azure_resource_group_name": "two-tier-tfc-demo-app",
+	"azure_vm_admin_password":   "password-two-tier!",
+	"azure_vm_admin_username":   "admin",
+	"azure_vm_size":             "Standard_B1s",
+	"azure_vm_tags": {
+		"environment": "dev",
+		"name":        "fail-test",
+		"owner":       "neil-dahlke",
+	},
+	"num_instances": "1",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

@@ -1,0 +1,29 @@
+import "tfplan"
+
+valid_naming_convention_rgx = "neil-.+"
+
+regex_check_name = func(name) {
+  return name matches valid_naming_convention_rgx
+}
+
+get_gcp_instances = func() {
+    instances = []
+    for tfplan.module_paths as path {
+        instances += values(tfplan.module(path).resources.google_compute_instance) else []
+    }
+    return instances
+}
+
+gcp_instances = get_gcp_instances()
+
+check_naming_convention = rule {
+  all gcp_instances as _, instances {
+    all instances as _, r {
+      regex_check_name(r.applied.name)
+    }
+  }
+}
+
+main = rule {
+  (check_naming_convention) else true
+}

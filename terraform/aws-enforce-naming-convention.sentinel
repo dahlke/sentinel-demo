@@ -1,0 +1,29 @@
+import "tfplan"
+
+valid_naming_convention_rgx = "neil-.+"
+
+regex_check_name = func(name) {
+  return name matches valid_naming_convention_rgx
+}
+
+get_aws_instances = func() {
+    instances = []
+    for tfplan.module_paths as path {
+        instances += values(tfplan.module(path).resources.aws_instance) else []
+    }
+    return instances
+}
+
+aws_instances = get_aws_instances()
+
+check_naming_convention = rule {
+  all aws_instances as _, instances {
+    all instances as _, r {
+      regex_check_name(r.applied.tags["name"])
+    }
+  }
+}
+
+main = rule {
+  (check_naming_convention) else true
+}

@@ -1,0 +1,720 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_compute_firewall": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"allow": [
+								{
+									"ports": [
+										"80",
+									],
+									"protocol": "tcp",
+								},
+							],
+							"deny":        [],
+							"description": null,
+							"disabled":    null,
+							"name":        "two-tier-tfc-demo-app-firewall",
+							"priority":    1000,
+							"source_ranges": [
+								"0.0.0.0/0",
+							],
+							"source_service_accounts": null,
+							"source_tags":             null,
+							"target_service_accounts": null,
+							"target_tags": [
+								"two-tier-tfc-demo-app",
+							],
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"allow.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.0.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"allow.0.ports.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.0.ports.0": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"allow.0.protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"deny.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"destination_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"direction": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"disabled": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-firewall",
+								"old":      "",
+							},
+							"network": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"priority": {
+								"computed": false,
+								"new":      "1000",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_ranges.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"source_ranges.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"source_service_accounts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"source_tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"target_service_accounts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"target_tags.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"target_tags.0": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_forwarding_rule": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"all_ports":             null,
+							"backend_service":       null,
+							"description":           null,
+							"ip_version":            null,
+							"load_balancing_scheme": "EXTERNAL",
+							"name":                  "two-tier-tfc-demo-app-forwarding-rule",
+							"port_range":            "80",
+							"ports":                 null,
+							"service_label":         null,
+							"timeouts":              null,
+						},
+						"destroy": false,
+						"diff": {
+							"all_ports": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"backend_service": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_protocol": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_version": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"load_balancing_scheme": {
+								"computed": false,
+								"new":      "EXTERNAL",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-forwarding-rule",
+								"old":      "",
+							},
+							"network": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_tier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"port_range": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"ports": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_label": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"service_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"subnetwork": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"target": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_instance": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"allow_stopping_for_update": null,
+							"attached_disk":             [],
+							"boot_disk": [
+								{
+									"auto_delete":             true,
+									"disk_encryption_key_raw": null,
+									"initialize_params": [
+										{
+											"image": "ubuntu-os-cloud/ubuntu-1804-lts",
+										},
+									],
+									"mode": "READ_WRITE",
+								},
+							],
+							"can_ip_forward":          false,
+							"deletion_protection":     false,
+							"description":             null,
+							"disk":                    [],
+							"hostname":                null,
+							"labels":                  null,
+							"machine_type":            "n1-standard-1",
+							"metadata":                null,
+							"metadata_startup_script": null,
+							"min_cpu_platform":        null,
+							"name":                    "neil-test-0",
+							"network_interface": [
+								{
+									"access_config": [
+										{
+											"public_ptr_domain_name": null,
+										},
+									],
+									"alias_ip_range": [],
+								},
+							],
+							"scratch_disk":             [],
+							"service_account":          [],
+							"shielded_instance_config": [],
+							"tags": [
+								"neil-test",
+								"two-tier-tfc-demo-app",
+							],
+							"timeouts": null,
+							"zone":     "us-west1-a",
+						},
+						"destroy": false,
+						"diff": {
+							"allow_stopping_for_update": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"attached_disk.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"boot_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"boot_disk.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"can_ip_forward": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"cpu_platform": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"disk.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"guest_accelerator.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"hostname": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"label_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"machine_type": {
+								"computed": false,
+								"new":      "n1-standard-1",
+								"old":      "",
+							},
+							"metadata": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"metadata_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"metadata_startup_script": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"min_cpu_platform": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "neil-test-0",
+								"old":      "",
+							},
+							"network_interface.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"scheduling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"scratch_disk.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"shielded_instance_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"tags.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"tags.0": {
+								"computed": false,
+								"new":      "neil-test",
+								"old":      "",
+							},
+							"tags.1": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app",
+								"old":      "",
+							},
+							"tags_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": false,
+								"new":      "us-west1-a",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_network": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"auto_create_subnetworks":         true,
+							"delete_default_routes_on_create": false,
+							"description":                     null,
+							"ipv4_range":                      null,
+							"name":                            "two-tier-tfc-demo-app-vpc",
+							"timeouts":                        null,
+						},
+						"destroy": false,
+						"diff": {
+							"auto_create_subnetworks": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"delete_default_routes_on_create": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"gateway_ipv4": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ipv4_range": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-vpc",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"routing_mode": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_target_pool": {
+				"two-tier-tfc-demo-app": {
+					0: {
+						"applied": {
+							"backup_pool":      null,
+							"description":      null,
+							"failover_ratio":   null,
+							"health_checks":    null,
+							"name":             "two-tier-tfc-demo-app-target-pool",
+							"session_affinity": "NONE",
+						},
+						"destroy": false,
+						"diff": {
+							"backup_pool": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"failover_ratio": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"health_checks": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instances.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "two-tier-tfc-demo-app-target-pool",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"session_affinity": {
+								"computed": false,
+								"new":      "NONE",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.12.9"
+
+variables = {
+	"gcp_instance_machine_type": "n1-standard-1",
+	"gcp_instance_name":         "neil-test",
+	"gcp_instance_tags": [
+		"dev",
+	],
+	"gcp_project_name": "neil-dahlke",
+	"gcp_region":       "us-west1",
+	"gcp_region_zone":  "us-west1-a",
+	"num_instances":    "1",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

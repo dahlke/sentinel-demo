@@ -1,0 +1,42 @@
+import "tfplan"
+
+mandatory_tags = [
+  "environment",
+  "name",
+  "owner",
+]
+
+get_aws_instances = func() {
+    instances = []
+    for tfplan.module_paths as path {
+        instances += values(tfplan.module(path).resources.aws_instance) else []
+    }
+    return instances
+}
+
+aws_instances = get_aws_instances()
+
+check_tags = rule {
+  all aws_instances as _, instances {
+    all instances as _, r {
+      (length(r.applied.tags) else 0) > 0
+    }
+  }
+}
+
+main = rule {
+  (check_tags) else true
+}
+
+/*
+# Instance tag rule
+instance_tags = rule {
+    all aws_instances as _, instances {
+    	all instances as index, r {
+            all mandatory_tags as t {
+                r.applied.tags contains t
+            }
+        }
+    }
+}
+*/

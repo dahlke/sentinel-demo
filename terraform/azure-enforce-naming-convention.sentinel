@@ -1,0 +1,29 @@
+import "tfplan"
+
+valid_naming_convention_rgx = "neil-.+"
+
+regex_check_name = func(name) {
+  return name matches valid_naming_convention_rgx
+}
+
+get_azure_vms = func() {
+    instances = []
+    for tfplan.module_paths as path {
+        instances += values(tfplan.module(path).resources.azurerm_virtual_machine) else []
+    }
+    return instances
+}
+
+azure_vms = get_azure_vms()
+
+check_naming_convention = rule {
+  all azure_vms as _, vms {
+    all vms as _, r {
+      regex_check_name(r.applied.tags["name"])
+    }
+  }
+}
+
+main = rule {
+  (check_naming_convention) else true
+}

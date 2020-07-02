@@ -1,0 +1,25 @@
+import "tfplan"
+
+allowed_vm_sizes = [ "Standard_B1ls", "Standard_B1s", "Standard_B1ms", "Standard_B2s " ]
+
+get_azure_vms = func() {
+    instances = []
+    for tfplan.module_paths as path {
+        instances += values(tfplan.module(path).resources.azurerm_virtual_machine) else []
+    }
+    return instances
+}
+
+azure_vms = get_azure_vms()
+
+check_vm_sizes = rule {
+  all azure_vms as _, vms {
+    all vms as _, r {
+      (length(r.applied.tags) else 0) > 0
+    }
+  }
+}
+
+main = rule {
+  (check_vm_sizes) else true
+}

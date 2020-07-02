@@ -1,0 +1,6 @@
+{
+  "mock": {
+    "tfconfig": "testdata/mock-tfconfig.sentinel",
+    "tfstate": "testdata/mock-tfstate.sentinel"
+  }
+}

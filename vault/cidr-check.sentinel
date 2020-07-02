@@ -1,0 +1,11 @@
+import "sockaddr"
+import "mfa"
+import "strings"
+
+cidrcheck = rule {
+    sockaddr.is_contained(request.connection.remote_addr, "10.20.0.0/16")
+}
+
+main = {
+    cidrcheck
+}

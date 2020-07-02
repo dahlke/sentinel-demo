@@ -1,0 +1,8 @@
+{
+    "mock": {
+      "tfplan": "../../test-data/azure/pass-all/mock-tfplan.sentinel"
+    },
+    "test": {
+      "main": true
+    }
+  }

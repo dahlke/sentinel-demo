@@ -1,0 +1,8 @@
+{
+    "mock": {
+      "tfplan": "../../test-data/aws/fail-enforce-naming-convention/mock-tfplan.sentinel"
+    },
+    "test": {
+      "main": false
+    }
+  }

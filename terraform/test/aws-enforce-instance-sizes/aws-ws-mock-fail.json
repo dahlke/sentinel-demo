@@ -1,0 +1,8 @@
+{
+    "mock": {
+      "tfplan": "../../test-data/aws/fail-enforce-instance-sizes/mock-tfplan.sentinel"
+    },
+    "test": {
+      "main": false
+    }
+  }
